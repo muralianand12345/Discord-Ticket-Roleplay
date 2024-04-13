@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { Client, GatewayIntentBits, Collection } from "discord.js";
+import { Client, GatewayIntentBits, Collection, Partials } from "discord.js";
 import * as Discord from 'discord.js';
 import * as dotenv from 'dotenv';
 import * as chokidar from 'chokidar';
@@ -16,10 +16,20 @@ const client = new Client({
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMembers,
         GatewayIntentBits.GuildWebhooks,
+        GatewayIntentBits.GuildPresences,
         GatewayIntentBits.GuildMessages,
+        GatewayIntentBits.GuildMessageTyping,
         GatewayIntentBits.DirectMessages,
+        GatewayIntentBits.DirectMessageTyping,
         GatewayIntentBits.MessageContent,
+        GatewayIntentBits.GuildMessageReactions,
         GatewayIntentBits.GuildVoiceStates,
+    ],
+    partials: [
+        Partials.Channel,
+        Partials.Message,
+        Partials.Reaction,
+        Partials.User
     ],
     shards: 'auto'
 });

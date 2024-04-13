@@ -116,3 +116,10 @@ export interface ITicketCategory {
     value: string
     emoji: string
 }
+
+export interface IModmailUser extends mongoose.Document {
+    userId: string,
+    status: boolean,
+    threadId: string | null,
+    count: number
+}

@@ -11,5 +11,12 @@
     },
     "ticket": {
         "enabled": true
+    },
+    "modmail": {
+        "enabled": true,
+        "server": "",
+        "channelid": "",
+        "staffname": "Support Staff",
+        "serverInvite": "https://discord.gg/XzE9hSbsNb"
     }
 }
