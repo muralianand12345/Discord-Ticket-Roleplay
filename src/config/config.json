@@ -1,0 +1,15 @@
+{
+    "bot": {
+        "owners": [
+            "678402714765361182"
+        ],
+        "prefix": "-",
+        "disableMessage": false,
+        "stdchan": "",
+        "logchan": "",
+        "cooldownMsg": "You are on `<duration>` cooldown!"
+    },
+    "ticket": {
+        "enabled": true
+    }
+}
