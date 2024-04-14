@@ -48,6 +48,11 @@ const generateLogFilePath = (logsBasePath: string) => {
 }
 
 const logsBasePath: string = path.join(__dirname, '../../logs');
+
+if (!fs.existsSync(logsBasePath)) {
+    fs.mkdirSync(logsBasePath, { recursive: true });
+}
+
 const logFilePath: string = generateLogFilePath(logsBasePath);
 
 const logger: Logger = {
