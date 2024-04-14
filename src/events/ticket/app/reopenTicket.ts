@@ -2,8 +2,8 @@ import { Events, ComponentType, ActionRowBuilder, ButtonBuilder, ButtonStyle, Co
 
 import ticketGuildModel from "../../database/schema/ticketGuild";
 import ticketUserModel from "../../database/schema/ticketUser";
-import { reopenTicketChan } from "../../../utils/ticketFunction";
-import { reopenEmbedEdit } from "../../../utils/ticketEmbed";
+import { reopenTicketChan } from "../../../utils/ticket/ticketFunction";
+import { reopenEmbedEdit } from "../../../utils/ticket/ticketEmbed";
 import { BotEvent, ITicketLog } from '../../../types';
 
 const event: BotEvent = {

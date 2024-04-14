@@ -2,7 +2,7 @@ import { EmbedBuilder, Client, TextChannel } from "discord.js";
 
 import { Command } from '../../types';
 
-const logEmbedSend = async (client: Client, command: String, channelId: String, userId: String, msg: String) => {
+const logEmbedSend = async (client: Client, command: string, channelId: string, userId: string, msg: string) => {
     const logEmbed = new EmbedBuilder()
         .setColor('Blue')
         .setDescription(`Command \`${client.config.bot.prefix}msg ${command} ${msg}\``)

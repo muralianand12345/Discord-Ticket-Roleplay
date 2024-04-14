@@ -1,9 +1,9 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import fs from 'fs';
+import path from 'path';
 import { Client, GatewayIntentBits, Collection, Partials } from "discord.js";
-import * as Discord from 'discord.js';
-import * as dotenv from 'dotenv';
-import * as chokidar from 'chokidar';
+import discord from 'discord.js';
+import dotenv from 'dotenv';
+import chokidar from 'chokidar';
 
 import logger from './module/logger';
 import * as cmdLogger from './module/commandLog';
@@ -66,7 +66,7 @@ watcher.on('change', (changedPath) => {
     }
 });
 
-client.discord = Discord;
+client.discord = discord;
 
 const handlersPath = path.join(__dirname, 'handlers');
 fs.readdirSync(handlersPath)

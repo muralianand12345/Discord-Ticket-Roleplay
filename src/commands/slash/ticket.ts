@@ -100,7 +100,7 @@ const command: SlashCommand = {
             var ticketConfigArray = ticketConfig?.split('\n');
             var ticketCategoryArray: any = [];
 
-            ticketConfigArray?.forEach(async (eachCategory: String) => {
+            ticketConfigArray?.forEach(async (eachCategory: string) => {
                 var eachCategoryArray = eachCategory.split(',');
 
                 if (eachCategoryArray.length !== 3) {

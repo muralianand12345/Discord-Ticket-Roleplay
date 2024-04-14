@@ -5,8 +5,8 @@ import path from "path";
 import { BotEvent, ITicketLog } from '../../../types';
 import ticketGuildModel from "../../database/schema/ticketGuild";
 import ticketUserModel from "../../database/schema/ticketUser";
-import { deleteTicketLog } from "../../../utils/ticketFunction";
-import { deleteTicketEmbedandClient, deleteTicketReasonModal, deleteTicketSpam } from "../../../utils/ticketEmbed";
+import { deleteTicketLog } from "../../../utils/ticket/ticketFunction";
+import { deleteTicketEmbedandClient, deleteTicketReasonModal, deleteTicketSpam } from "../../../utils/ticket/ticketEmbed";
 
 const buttonCooldown = new Set();
 config();

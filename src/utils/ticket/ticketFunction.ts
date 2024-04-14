@@ -3,9 +3,9 @@ import discordTranscripts from "discord-html-transcripts";
 import fs from "fs";
 const fsPromises = fs.promises;
 
-import { ITicketUser, ITicketGuild } from "../types";
+import { ITicketUser, ITicketGuild } from "../../types";
 
-const createTicketChan = async (client: Client, interaction: any, parentCat: String, ticketCount: Number, ticketSupport: String) => {
+const createTicketChan = async (client: Client, interaction: any, parentCat: string, ticketCount: number, ticketSupport: string) => {
     const channel = await interaction.guild?.channels.create({
         name: `ticket-${ticketCount}-${interaction.user.username}`,
         parent: parentCat,
@@ -40,7 +40,7 @@ const checkTicketCategory = async (client: Client, interaction: Interaction, cat
     }
 }
 
-const closeTicketChan = async (client: Client, interaction: any, parentCat: String, ticketSupport: String, userID: String) => {
+const closeTicketChan = async (client: Client, interaction: any, parentCat: string, ticketSupport: string, userID: string) => {
     const user = await interaction.guild?.members.fetch(userID).catch(() => null);
 
     if (user) {
@@ -82,7 +82,7 @@ const closeTicketChan = async (client: Client, interaction: any, parentCat: Stri
     }
 }
 
-const deleteTicketLog = async (client: Client, interaction: Interaction, ticketLogDir: String, chan: TextChannel, type: String) => {
+const deleteTicketLog = async (client: Client, interaction: Interaction, ticketLogDir: string, chan: TextChannel, type: string) => {
     let htmlCode;
 
     switch (type) {

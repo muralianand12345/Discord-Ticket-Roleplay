@@ -1,5 +1,5 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import fs from 'fs';
+import path from 'path';
 
 import { Events, Client, Routes, SlashCommandBuilder, REST } from 'discord.js';
 import { BotEvent, Command, SlashCommand } from '../types';

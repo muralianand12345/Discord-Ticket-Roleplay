@@ -2,8 +2,8 @@ import { Message, Snowflake, Collection, ComponentType, Events, EmbedBuilder, Ac
 
 import ticketGuildModel from "../../database/schema/ticketGuild";
 import ticketUserModel from "../../database/schema/ticketUser";
-import { createTicketChan, checkTicketCategory } from "../../../utils/ticketFunction";
-import { createTicketEmbed, showTicketModal, ticketModalEmbed } from "../../../utils/ticketEmbed";
+import { createTicketChan, checkTicketCategory } from "../../../utils/ticket/ticketFunction";
+import { createTicketEmbed, showTicketModal, ticketModalEmbed } from "../../../utils/ticket/ticketEmbed";
 import { BotEvent, ITicketCategory, ITicketLog } from '../../../types';
 
 const event: BotEvent = {

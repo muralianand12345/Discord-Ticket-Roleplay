@@ -1,6 +1,6 @@
 import { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, ModalBuilder, TextInputBuilder, TextInputStyle, Interaction, Client, TextChannel, ModalSubmitInteraction, Message } from "discord.js";
 
-import { ITicketGuild, ITicketUser } from "../types";
+import { ITicketGuild, ITicketUser } from "../../types";
 
 const row = new ActionRowBuilder<ButtonBuilder>()
     .addComponents(
@@ -236,7 +236,7 @@ const closeTicketEditInt = async (client: Client, interaction: any) => {
     await interaction.message.edit({ components: [rowDisAll] });
 }
 
-const deleteTicketEmbedandClient = async (client: Client, interaction: Interaction, ticketUser: ITicketUser, ticketGuild: ITicketGuild, serverAdd: String, chan: TextChannel, TicketReason: any) => {
+const deleteTicketEmbedandClient = async (client: Client, interaction: Interaction, ticketUser: ITicketUser, ticketGuild: ITicketGuild, serverAdd: string, chan: TextChannel, TicketReason: any) => {
     const embed = new EmbedBuilder()
         .setAuthor({ name: 'Logs Ticket', iconURL: client.user?.avatarURL() || "" })
         .setDescription(`📰 Logs of the ticket \`${chan.id}\` created by <@!${ticketUser.userId}> and deleted by <@!${interaction.user.id}>\n\nLogs: [**Click here to see the logs**](${serverAdd}/transcript-${interaction.channel?.id}.html)`)

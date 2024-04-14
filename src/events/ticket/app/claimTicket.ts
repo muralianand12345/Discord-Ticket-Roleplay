@@ -1,7 +1,7 @@
 import { Events } from "discord.js";
 
 import ticketGuild from "../../database/schema/ticketGuild";
-import { claimTicketEmbed } from "../../../utils/ticketEmbed";
+import { claimTicketEmbed } from "../../../utils/ticket/ticketEmbed";
 import { BotEvent } from '../../../types';
 
 const event: BotEvent = {
