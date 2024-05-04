@@ -27,10 +27,21 @@ const event: BotEvent = {
         const slashCommandFiles = fs.readdirSync(slashCommandsDir).filter(file => file.endsWith('.js'));
         for (const file of slashCommandFiles) {
             const command: SlashCommand = require(`../commands/slash/${file}`).default;
-            client.slashCommands.set(command.data.name, command);
-            slashCommands.push(command.data);
+
+            if (client.config.bot.register_specific_commands.enabled) {
+                if (client.config.bot.register_specific_commands.commands.includes(command.data.name)) {
+                    client.slashCommands.set(command.data.name, command);
+                    slashCommands.push(command.data);
+                }
+            } else {
+                client.slashCommands.set(command.data.name, command);
+                slashCommands.push(command.data);
+            }
         }
-        
+
+        client.logger.info(`Loaded ${commands.length || 0} message commands.`);
+        client.logger.info(`Loaded ${slashCommands.length || 0} slash commands.`);
+
         const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
 
         rest.put(Routes.applicationCommands(clientID), {

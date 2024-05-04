@@ -5,10 +5,10 @@ const fsPromises = fs.promises;
 
 import { ITicketUser, ITicketGuild } from "../../types";
 
-const createTicketChan = async (client: Client, interaction: any, parentCat: string, ticketCount: number, ticketSupport: string) => {
+const createTicketChan = async (client: Client, interaction: any, parentCat: string | null, ticketCount: number, ticketSupport: string) => {
     const channel = await interaction.guild?.channels.create({
         name: `ticket-${ticketCount}-${interaction.user.username}`,
-        parent: parentCat,
+        parent: parentCat || null,
         topic: `${ticketCount}`,
         permissionOverwrites: [
             {

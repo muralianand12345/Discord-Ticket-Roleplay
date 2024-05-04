@@ -5,6 +5,12 @@
         ],
         "prefix": "-",
         "disableMessage": false,
+        "register_specific_commands": {
+            "enabled": false,
+            "commands": [
+                "ping"
+            ]
+        },
         "stdchan": "",
         "logchan": "",
         "cooldownMsg": "You are on `<duration>` cooldown!"
@@ -18,5 +24,36 @@
         "channelid": "",
         "staffname": "Support Staff",
         "serverInvite": "https://discord.gg/XzE9hSbsNb"
+    },
+    "moderation": {
+        "reactionmod": {
+            "enabled": true,
+            "emojitoremove": [
+                "💩",
+                "🖕",
+                "🤬",
+                "🤡",
+                "🖕🏻",
+                "🖕🏼",
+                "🖕🏽",
+                "🖕🏾",
+                "🖕🏿",
+                "🤮",
+                "🤢",
+                "😈",
+                "👿",
+                "🦠",
+                "🍆",
+                "🍑",
+                "🙊",
+                "🖤",
+                "🤖",
+                "🚫",
+                "😤",
+                "👺",
+                "👹",
+                "😾"
+            ]
+        }
     }
 }

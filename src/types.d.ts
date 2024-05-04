@@ -123,3 +123,16 @@ export interface IModmailUser extends mongoose.Document {
     threadId: string | null,
     count: number
 }
+
+export interface IReactionMod extends mongoose.Document {
+    userId: string,
+    count: number,
+    logs: Array<IReactionModLog>
+}
+
+export interface IReactionModLog {
+    guildId: string,
+    channelId: string,
+    emoji: string,
+    timestamp: Date
+}

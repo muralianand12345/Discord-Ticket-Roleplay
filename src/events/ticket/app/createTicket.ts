@@ -1,4 +1,4 @@
-import { Message, Snowflake, Collection, ComponentType, Events, EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder } from "discord.js";
+import { Message, Snowflake, Collection, Channel, ComponentType, Events, EmbedBuilder, ActionRowBuilder, StringSelectMenuBuilder, ChannelType } from "discord.js";
 
 import ticketGuildModel from "../../database/schema/ticketGuild";
 import ticketUserModel from "../../database/schema/ticketUser";
@@ -25,6 +25,14 @@ const event: BotEvent = {
 
             if (!ticketGuild || !ticketGuild.ticketStatus) {
                 return await interaction.editReply({ content: 'Ticket system is not active!', ephemeral: true });
+            }
+
+            if (!ticketGuild.ticketSupportId && !interaction.guild.roles.cache.get(ticketGuild.ticketSupportId)) {
+                return await interaction.editReply({ content: 'Ticket Support Role is not set or missing!', ephemeral: true });
+            }
+
+            if (!ticketGuild.ticketLogId && !interaction.guild.channels.cache.get(ticketGuild.ticketLogId)) {
+                return await interaction.editReply({ content: 'Ticket Log Channel is not set or missing!', ephemeral: true });
             }
 
             if (ticketUser) {
@@ -75,6 +83,16 @@ const event: BotEvent = {
                 if (i.user.id === interaction.user.id) {
 
                     if (i.values[0]) {
+
+                        //check if the category exists in the guild
+                        const category = i.values[0];
+                        if (!interaction.guild.channels.cache.find((c: Channel) => c.id === category && c.type === ChannelType.GuildCategory)) {
+                            return await i.reply({
+                                content: 'Sorry, the ticket category is not found! Try again later.',
+                                ephemeral: true,
+                            });
+                        }
+
                         if (await checkTicketCategory(client, interaction, i.values[0])) {
                             return await i.reply({
                                 content: 'Sorry, the ticket category is full! Try again later.',

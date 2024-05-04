@@ -1,5 +1,4 @@
 import { Schema, model } from "mongoose";
-
 import { IModmailUser } from "../../../types";
 
 const modmailUserSchema = new Schema<IModmailUser>({
